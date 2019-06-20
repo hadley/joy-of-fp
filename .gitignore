@@ -6,3 +6,4 @@ NFSopen_AllData
 gbbc
 metadata
 nfs
+*.key
