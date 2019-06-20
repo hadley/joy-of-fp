@@ -1,4 +1,4 @@
-## The joy of functional programming (for data science)
+# The joy of functional programming (for data science) <img src="joy-of-fp.jpg" width="300" align="right" />
 
 Functional programming (FP) provides a rich set of tools for reducing duplication in your code. The goal of FP is make it easy to express repeated actions using high-level verbs. I think that learning a little about FP is really important for data scientists, because it's a really good fit for many problems that you'll encounter in practice.
 
