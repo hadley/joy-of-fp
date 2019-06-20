@@ -5,3 +5,9 @@ Functional programming (FP) provides a rich set of tools for reducing duplicatio
 In this talk, I'll introduce you to the basics of functional programming in R, using the purrr package. I'll begin by briefly dissecting the for loop that you're already familiar with, then continue to show why functional programming provides elegant alternatives. I'll next dive into two examples showing where FP is particularly useful in data science: when ingesting unruly datasets spread across multiple files, and producing multiple reports for different stakeholders.
 
 You'll get the most out of this talk if you're familiar with R, or you've done data science in other languages like python.
+
+## License
+
+* Code is [CC0](https://creativecommons.org/share-your-work/public-domain/cc0/)
+
+* Images are [CC-BY-SA](https://creativecommons.org/licenses/by-sa/4.0/)
