@@ -1,0 +1,44 @@
+---
+title: "`r paste('Great British Baking Challenge', params$season)`"
+output: pdf_document
+params:
+  season: 4
+---
+
+```{r setup, include=FALSE}
+# remotes::install_github("apreshill/bakeoff")
+library(bakeoff)
+library(tidyverse)
+```
+
+## Overview
+
+```{r, echo = FALSE}
+this_season <- filter(series, series == params$season)
+```
+
+Series `r params$series` premiered on `r this_season$premiere`, and had `r this_season$episodes` episodes.
+
+## Ratings
+
+```{r, echo = FALSE}
+this_ratings <- filter(ratings, series == params$season)
+
+viewers <- this_ratings %>% 
+  select(series:viewers_28day) %>% 
+  pivot_longer(starts_with("viewers"), 
+    names_to = "days", 
+    names_prefix = "viewers_", 
+    values_to = "viewers"
+  ) 
+
+ggplot(viewers, aes(uk_airdate, viewers, colour = days)) + 
+  geom_point() + 
+  geom_line() + 
+  labs(
+    x = "Air date", 
+    y = "Viewers (millions)"
+  )
+```
+
+
