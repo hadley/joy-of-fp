@@ -32,6 +32,7 @@ map(paths, ~ unzip(.x, list = TRUE)$Name)
 # and its contents. So instead let's make a data frame.
 # Again we first figure it out for one:
 tibble(path = x, file = unzip(x, list = TRUE)$Name)
+~ tibble(path = .x, file = unzip(.x, list = TRUE)$Name)
 
 # Then we make a recipe and use map()
 map(paths, ~ tibble(path = .x, files = unzip(.x, list = TRUE)$Name))
@@ -42,6 +43,8 @@ files <- map_dfr(paths, ~ tibble(path = .x, files = unzip(.x, list = TRUE)$Name)
 files
 
 # Now we can check if each year has the same files:
+length(paths)
+
 files %>%
   extract(files, c("year", "name"), "(\\d{4}) (.*)\\.txt") %>%
   count(name)
@@ -53,6 +56,8 @@ x <- paths[[1]]
 unzip(x, exdir = "nfs")
 
 # Generalise with recipe + map function
+~ unzip(.x, exdir = "nfs")
+
 map(paths, ~ unzip(.x, exdir = "nfs"))
 
 # Notice this unzip() returns the names of the files it has unzipped
@@ -85,7 +90,7 @@ read_lines(x, n_max = 1)
 map(mealsout_paths, ~ read_lines(.x, n_max = 1))
 
 # A character vector would be simpler
-map_chr(mealsout_paths, ~ read_lines(.x, n_max = 1))
+unname(map_chr(mealsout_paths, ~ read_lines(.x, n_max = 1)))
 
 table(map_chr(mealsout_paths, ~ read_lines(.x, n_max = 1)))
 # PHEW!

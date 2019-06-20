@@ -18,7 +18,9 @@ paths <- paste0("gbbc/season-", seasons, ".pdf")
 x <- seasons[[1]]
 list(season = x)
 
-params <- map(seasons, ~ list(season = .))
+paths
+params <- map(seasons, ~ list(season = .x))
+str(params)
 
 walk2(
   paths, params,
