@@ -6,6 +6,10 @@ In this talk, I'll introduce you to the basics of functional programming in R, u
 
 You'll get the most out of this talk if you're familiar with R, or you've done data science in other languages like python.
 
+## Video
+
+* Video available [here](https://www.youtube.com/watch?v=bzUmK0Y07ck).
+
 ## License
 
 * Code is [CC0](https://creativecommons.org/share-your-work/public-domain/cc0/)
